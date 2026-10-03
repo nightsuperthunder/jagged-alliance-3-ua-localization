@@ -91,7 +91,9 @@
   "csv_name": "English.csv",
   "language": "English",
   "zip_name": "JA3_Ukrainian_Localization.zip",
-  "font_overrides_from": "Russian"
+  "font_overrides_from": "Russian",
+  "version": "0.9",
+  "repo_url": "https://github.com/nightsuperthunder/jagged-alliance-3-ua-localization"
  },
  "privacy_patterns": [
   "yaroslav",

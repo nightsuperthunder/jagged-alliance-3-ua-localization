@@ -69,7 +69,8 @@ scripts/                   # generic pipeline, works on strings.json
   hpk.py                   # JA3: reader for Haemimont .hpk archives (stdlib only, Python 3.14+ for zstd)
   export_strings.py        # JA3: Local/English.hpk -> work/strings.json (deterministic)
   build_mod.py             # JA3: translations.json -> mod/dist/<folder> + zip, --install to %AppData%
-mod/                       # metadata.lua / items.lua templates (@PLACEHOLDERS@ filled by build_mod.py), README_UA.txt
+mod/                       # metadata.lua / items.lua templates (@PLACEHOLDERS@ filled by build_mod.py), README_UA.txt,
+                           # installer/install.bat + uninstall.bat (CRLF, UTF-8 + chcp 65001; copied to zip root)
 reference/dressmaker-unity/  # worked example from another game (Unity + BepInEx); not used here
 ```
 
@@ -78,6 +79,7 @@ reference/dressmaker-unity/  # worked example from another game (Unity + BepInEx
 |---|---|
 | Extract strings | `python scripts/export_strings.py` → `work/strings.json` (re-run after a game update) |
 | Build / install mod | `python scripts/build_mod.py [--install] [--all]` → `mod/JA3_Ukrainian_Localization.zip` |
+| Release | `python scripts/release.py X.Y.Z` → versioned zip; then commit, push, `gh release create` (user's OK) |
 | Inspect an archive | `python scripts/hpk.py <file.hpk> [<inner path> <out file>]` |
 | Glossary candidates | `python scripts/glossary_candidates.py [--llm]` → `work/glossary_candidates.csv` |
 | Pilot | `python scripts/translate.py --file <f> --limit 40 --out work/test_a.json [--model M --no-think]` |

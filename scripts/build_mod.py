@@ -112,7 +112,10 @@ def main():
         for f in sorted(dest.rglob("*")):
             z.write(f, f.relative_to(DIST))
         if (MOD / "README_UA.txt").exists():
-            z.write(MOD / "README_UA.txt", "README_UA.txt")
+            readme = (MOD / "README_UA.txt").read_text(encoding="utf-8").replace("@REPO_URL@", M.get("repo_url", ""))
+            z.writestr("README_UA.txt", readme.replace("\n", "\r\n").encode("utf-8-sig"))  # Блокнот + кирилиця
+        for bat in sorted((MOD / "installer").glob("*.bat")):
+            z.write(bat, bat.name)  # CRLF, UTF-8 без BOM (chcp 65001 усередині)
     print(f"Архів: {zip_path}")
     leaks = privacy_check(zip_path)
     if leaks:
