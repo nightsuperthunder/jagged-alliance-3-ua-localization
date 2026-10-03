@@ -174,6 +174,10 @@ def autofix(en, uk):
     return "".join(parts)
 
 
+# слова, які лишаються латиницею завжди (назва гри)
+KEEP_LATIN = {"Jagged", "Alliance"}
+
+
 def validate(en, uk, allowed_latin=()):
     """Повертає список проблем (порожній = все добре). Тексти помилок ідуть і моделі, тому українською."""
     errs = []
@@ -209,7 +213,7 @@ def validate(en, uk, allowed_latin=()):
             errs.append("немає кирилиці — схоже, не перекладено")
     translit = set(LAT_WORD_RE.findall(ru_translit(en))) if RU_WORD_RE.search(en) else set()  # Molodets тощо
     leftover = [w for w in LAT_WORD_RE.findall(TAG_RE.sub("", strip_prefix(uk)))
-                if w not in allowed_latin and w not in translit]
+                if w not in allowed_latin and w not in translit and w not in KEEP_LATIN]
     if len(leftover) >= 3:
         errs.append(f"залишилися англійські слова: {leftover[:6]}")
     # модель любить обгортати весь рядок у «…»; пробіл чи крапка після » не мають це ховати

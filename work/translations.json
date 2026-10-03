@@ -3561,80 +3561,47 @@
  },
  "ui:994618945577": {
   "src": "b4cfe1f435f0",
-  "uk": "Ескейп",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:363663173763": {
   "src": "88d130a66de8",
-  "uk": "Бекейсп",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:362312379813": {
   "src": "fe06eb6459c8",
-  "uk": "Таб",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:434251720954": {
   "src": "2b9eceb7a86a",
-  "uk": "Ентер",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:528194924773": {
   "src": "469d5b183fdc",
-  "uk": "Шифт",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:526443613034": {
   "src": "dd6a02a553da",
-  "uk": "Контроль",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:382578073377": {
   "src": "e30eff925100",
-  "uk": "Альт",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:295522905381": {
   "src": "2e1767e4b47f",
-  "uk": "Капс Лок",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:918886773235": {
   "src": "6d8c9b124d52",
-  "uk": "Пробіл",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:408309138461": {
   "src": "b71dee8d6cee",
-  "uk": "Пейдж Ап",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:842877867225": {
   "src": "c26ada745406",
-  "uk": "Пейдж Даун",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:431579043068": {
   "src": "a2bb9d34b8a1",
@@ -3642,59 +3609,35 @@
  },
  "ui:758009688242": {
   "src": "70f8bb9a8a53",
-  "uk": "Гоум",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:986696793449": {
   "src": "8ae1c34bd37f",
-  "uk": "Вліво",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:456582989896": {
   "src": "2038bdec9210",
-  "uk": "Вгору",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:154027640280": {
   "src": "954daa8b0033",
-  "uk": "Вправо",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:931890286355": {
   "src": "bf93e5ce8bc1",
-  "uk": "Вниз",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:860978238624": {
   "src": "05e206dcf98b",
-  "uk": "Прт Скр",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:133397615161": {
   "src": "95802daab3a2",
-  "uk": "Інсерт",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:575155046483": {
   "src": "f6fdbe48dc54",
-  "uk": "Деліт",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:149656302141": {
   "src": "6dcd4ce23d88",
@@ -3710,38 +3653,23 @@
  },
  "ui:545051320623": {
   "src": "50c9e8d5fc98",
-  "uk": "Г",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:753030316400": {
   "src": "e0184adedf91",
-  "uk": "Д",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:218798608273": {
   "src": "e69f20e9f683",
-  "uk": "Е",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:891009741813": {
   "src": "a36a6718f545",
-  "uk": "Є",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:692140541849": {
   "src": "7cf184f4c67a",
-  "uk": "Ж",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:174022551728": {
   "src": "ca73ab65568c",
@@ -3749,17 +3677,11 @@
  },
  "ui:539479830500": {
   "src": "58668e7669fd",
-  "uk": "Й",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:161860974128": {
   "src": "a7ee38bb7be4",
-  "uk": "К",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:249226123778": {
   "src": "d160e0986aca",
@@ -3767,66 +3689,39 @@
  },
  "ui:481171943908": {
   "src": "c63ae6dd4fc9",
-  "uk": "М",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:839266622388": {
   "src": "b51a60734da6",
-  "uk": "Н",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:157030789856": {
   "src": "08a914cde050",
-  "uk": "О",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:516854979267": {
   "src": "511993d3c997",
-  "uk": "П",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:777840477129": {
   "src": "c3156e00d3c2",
-  "uk": "Р",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:334310658454": {
   "src": "06576556d1ad",
-  "uk": "С",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:757474062216": {
   "src": "02aa629c8b16",
-  "uk": "Т",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:631701410137": {
   "src": "c2c53d669482",
-  "uk": "У",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:746408826482": {
   "src": "b2c7c0caa10a",
-  "uk": "Ф",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:821369968483": {
   "src": "c9ee5681d3c5",
@@ -3834,10 +3729,7 @@
  },
  "ui:462254668873": {
   "src": "e2415cb7f63d",
-  "uk": "Ц",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:777329821172": {
   "src": "c032adc1ff62",
@@ -3845,17 +3737,11 @@
  },
  "ui:247827094995": {
   "src": "23eb4d3f4155",
-  "uk": "Ш",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:828110723178": {
   "src": "909f99a779ad",
-  "uk": "Щ",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:489779093554": {
   "src": "1dfeac161728",
@@ -3863,106 +3749,63 @@
  },
  "ui:456380228262": {
   "src": "df719b98c33e",
-  "uk": "Цифра 1 на цифровій клавіатурі",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "status": "skip"
  },
  "ui:113337768441": {
   "src": "5369565ec892",
-  "uk": "Клавіша 2",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:740942281281": {
   "src": "46eccea6987a",
-  "uk": "Блок 3",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:980927237943": {
   "src": "8d1d91af94a8",
-  "uk": "Нум4",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:588948567523": {
   "src": "abe492e7e49e",
-  "uk": "5 (цифрова клавіатура)",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:340606982373": {
   "src": "17b34fdb4e75",
-  "uk": "Кнопка 6 (цифровий блок)",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:772104171308": {
   "src": "7f1b8fb149c4",
-  "uk": "Цифра 7 на цифровій клавіатурі",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "status": "skip"
  },
  "ui:227858857321": {
   "src": "af2d015ea8aa",
-  "uk": "Блок 8",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:153825312527": {
   "src": "cf1a1db8991e",
-  "uk": "Блок 9",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:351609916758": {
   "src": "2954de240823",
-  "uk": "Блок *",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:405660426752": {
   "src": "64bb518c59e9",
-  "uk": "Блок +",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:499808818233": {
   "src": "c9f675776ad0",
-  "uk": "Блок Enter",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:903488781508": {
   "src": "0a9c5b62c3aa",
-  "uk": "Блок -",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:716491142574": {
   "src": "674f802b744c",
-  "uk": "Блок .",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:491313029155": {
   "src": "1e6f82a99967",
-  "uk": "Блок /",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:613301875525": {
   "src": "88bfad9cfffe",
@@ -4018,79 +3861,47 @@
  },
  "ui:742990430859": {
   "src": "d8ce68357f34",
-  "uk": "Клавіша Scroll Lock",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "status": "skip"
  },
  "ui:539846438970": {
   "src": "781961bc81c2",
-  "uk": "Пауза",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:584720376973": {
   "src": "d4ae908c63e8",
-  "uk": "Лівий Shift",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:875823520952": {
   "src": "878829ae14a6",
-  "uk": "Права Shift",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:818714172929": {
   "src": "d81bf4470f27",
-  "uk": "Л Ctrl",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:965397112297": {
   "src": "504819c8bbee",
-  "uk": "П Ctrl",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:790540664825": {
   "src": "09561f2725b3",
-  "uk": "Л Alt",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:797234617727": {
   "src": "188a60bd3d5f",
-  "uk": "П Alt",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:672291274770": {
   "src": "ab28b7c1a7f9",
-  "uk": "Л Він",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:895098105879": {
   "src": "0ebe38644f3d",
-  "uk": "П Він",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:358439604347": {
   "src": "57f5f5efbc59",
-  "uk": "Меню",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:763212526438": {
   "src": "2a8d94e44285",
@@ -7210,10 +7021,7 @@
  },
  "ui:1079": {
   "src": "6af714eaaac2",
-  "uk": "Коаліція «Яґеда Альянс 3»",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "skip"
  },
  "ui:993774297586": {
   "src": "0d57500f124a",
@@ -7225,10 +7033,8 @@
  },
  "ui:601256219000": {
   "src": "9ac7406f8e7d",
-  "uk": "Платинова трофея Jagged Alliance 3",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Платиновий трофей Jagged Alliance 3",
+  "status": "manual"
  },
  "ui:635447268623": {
   "src": "feeec73c5536",
@@ -16174,10 +15980,8 @@
  },
  "ui:657833848133": {
   "src": "3e0fdef1711f",
-  "uk": "Це <em>Емма Лафонтен</em>. Дякую, що погодилися допомогти мені знайти мого батька. У мене небагато часу на розмови. Мені сказали, що тут більше небезпечно для мене, тому я готуюся до від’їзду.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Це <em>Емма Лафонтен</em>. Дякую, що погодилися допомогти мені знайти батька. У мене мало часу на розмови. Мені сказали, що тут для мене вже небезпечно, тому я готуюся до від’їзду.",
+  "status": "manual"
  },
  "ui:843574394357": {
   "src": "50f5bf68acd1",
@@ -16188,24 +15992,18 @@
  },
  "ui:273524094323": {
   "src": "99abd9454b28",
-  "uk": "Ви бачите, <em>Альфонс Лафонтен</em> — це набагато більше, ніж просто <em>президент</em> — він є символом віри мого народу в краще майбутнє для Гран-Ш’єну. З моменту його викрадення ця віра була похитнута.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Розумієте, <em>Альфонс Лафонтен</em> — це набагато більше, ніж просто <em>президент</em> — він є символом віри мого народу в краще майбутнє для Гран-Ш’єну. З моменту його викрадення ця віра була похитнута.",
+  "status": "manual"
  },
  "ui:882784467984": {
   "src": "669835e901f9",
-  "uk": "Тут такі поняття, як закон і справедливість, є крихкими, і політичні вороги мого батька вже закликають до запровадження надзвичайних повноважень. Я не знаю, чи вони стоять за викраденням, але впевнений, що вони планують скористатися цим.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Тут такі поняття, як закон і справедливість, є крихкими, і політичні вороги мого батька вже закликають до запровадження надзвичайних повноважень. Я не знаю, чи вони стоять за викраденням, але впевнена, що вони планують скористатися цим.",
+  "status": "manual"
  },
  "ui:980617204308": {
   "src": "31f7752df362",
-  "uk": "Людина, яка викрала мого батька, називає себе <em>Майором</em>. Я не зміг з’ясувати, хто він насправді, але всі знають, чого він хоче. Він вимагає, щоб уся долина річки Аджані була йому віддана.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Людина, яка викрала мого батька, називає себе <em>Майором</em>. Я не змогла з’ясувати, хто він насправді, але всі знають, чого він хоче. Він вимагає, щоб уся долина річки Аджані була йому віддана.",
+  "status": "manual"
  },
  "ui:170466064841": {
   "src": "5acbaff09235",
@@ -16216,7 +16014,7 @@
  },
  "ui:243290865030": {
   "src": "40117959a7b7",
-  "uk": "Я переказав гроші, які ви просили. Будь ласка, зберіть свою команду і приїжджайте до мене на <em>острів Ерні</em>, до вілли <em>Корасон Сантьяго</em>. Вона є представницею <em>Адоніс</em>, про яку я писав у своєму електронному листі — її алмазні розробки можуть допомогти з додатковим фінансуванням, якщо це знадобиться.",
+  "uk": "Я переказала гроші, які ви просили. Будь ласка, зберіть команду і приїжджайте до мене на <em>острів Ерні</em>, на віллу <em>Корасон Сантьяго</em>. Вона представниця компанії <em>Адоніс</em>, про яку я писала в електронному листі, — її видобуток алмазів може допомогти з додатковим фінансуванням, якщо знадобиться.",
   "status": "manual"
  },
  "ui:707093581147": {
@@ -18660,10 +18458,8 @@
  },
  "ui:205461986270": {
   "src": "a87b3e42cc22",
-  "uk": "<em>ДВА МІСЯЦІ ПОЗНАЧЕ</em>\nПривіт!\nВибачте за затримку з повідомленнями, але я був дуже зайнятий гасінням пожеж.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "<em>ДВА МІСЯЦІ ПІЗНІШЕ</em>\nПривіт!\nВибачте за затримку з повідомленнями, але я була дуже зайнята гасінням пожеж.",
+  "status": "manual"
  },
  "ui:841289598468": {
   "src": "76743409ded2",
@@ -18695,9 +18491,8 @@
  },
  "ui:324549978266": {
   "src": "cedc2bc5427c",
-  "uk": "Є багато причин, чому я радий, що <em>Майор</em> мертвий, але, мабуть, головна з них — я б не хотів, щоб він мав якийсь вплив на мого П’єра — я маю на увазі, на мій народ.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Є багато причин, чому я рада, що <em>Майор</em> мертвий, але, мабуть, головна з них — я б не хотіла, щоб він мав якийсь вплив на мого П’єра — я маю на увазі, на мій народ.",
+  "status": "manual"
  },
  "ui:610935670008": {
   "src": "5edf71f4f795",
@@ -18801,9 +18596,8 @@
  },
  "ui:615029658310": {
   "src": "e45f3388c432",
-  "uk": "Без впливу мого батька уряд був на межі краху. Лише загроза громадянської війни стримала його від розпаду. На щастя, без <em>Faucheux</em> на чолі, командири батальйонів, що повстали, не були єдиними.",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "uk": "Без впливу мого батька уряд був на межі краху. Лише загроза громадянської війни стримала його від розпаду. На щастя, без <em>Фоше</em> на чолі, командири батальйонів, що повстали, не були єдиними.",
+  "status": "manual"
  },
  "ui:683733731718": {
   "src": "e470cc7a1335",
@@ -18814,9 +18608,8 @@
  },
  "ui:917144114244": {
   "src": "145570eac895",
-  "uk": "Тому я прийняв допомогу вашого друга <em>П’єра</em> та його «Ерні Рейнджерс».",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Тому я прийняла допомогу вашого друга <em>П’єра</em> та його «Ерні Рейнджерс».",
+  "status": "manual"
  },
  "ui:688481214432": {
   "src": "a8b3b1019910",
@@ -18827,21 +18620,18 @@
  },
  "ui:867658934743": {
   "src": "485be04b3a23",
-  "uk": "Однак він заплатив найвищу ціну і помер героєм для своєї країни. Я хотів би краще його знати.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Однак він заплатив найвищу ціну і помер героєм для своєї країни. Шкода, що я не знала його краще.",
+  "status": "manual"
  },
  "ui:116165149003": {
   "src": "92547395b380",
-  "uk": "Я сподівався, що наш друг <em>П’єр</em> та його «Рейнджери Ерні» допоможуть нам, але… він не відповів на наші прохання про допомогу.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Я сподівалася, що ваш друг <em>П’єр</em> та його «Рейнджери Ерні» допоможуть нам, але… він не відповів на наші прохання про допомогу.",
+  "status": "manual"
  },
  "ui:281436638156": {
   "src": "a6e819953a40",
-  "uk": "Я чув, що він був зайнятий полюванням на <em>Майора</em> та його ліквідацією. Чоловік справді заслужив смерть, але П’єру було егоїстично переслідувати свою помсту, коли його країна потребувала його.",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "uk": "Я чула, що він був зайнятий полюванням на <em>Майора</em> та його ліквідацією. Чоловік справді заслужив смерть, але П’єру було егоїстично переслідувати свою помсту, коли його країна потребувала його.",
+  "status": "manual"
  },
  "ui:227337844076": {
   "src": "04f94501f123",
@@ -18852,9 +18642,8 @@
  },
  "ui:734414628635": {
   "src": "aa59a94cc432",
-  "uk": "Мені дозволили укласти угоду з дияволом. Я запропонував <em>Майору</em> можливість отримати офіційну амністію, якщо він погодиться воювати на нашому боці. Він погодився.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Мені дозволили укласти угоду з дияволом. Я запропонувала <em>Майору</em> можливість отримати офіційну амністію, якщо він погодиться воювати на нашому боці. Він погодився.",
+  "status": "manual"
  },
  "ui:349383646476": {
   "src": "f44027f65ae7",
@@ -18865,9 +18654,8 @@
  },
  "ui:625828632372": {
   "src": "20288d476007",
-  "uk": "Я помилував його посмертно та зняв усі кримінальні звинувачення з <em>Легіону</em>. Не люблю цю несправедливість, але хоч миру трохи більше.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Я посмертно помилувала його та зняла усі кримінальні звинувачення з <em>Легіону</em>. Мені не подобається така несправедливість, але принаймні настав мир.",
+  "status": "manual"
  },
  "ui:200402227711": {
   "src": "243e8b041a8e",
@@ -18906,10 +18694,8 @@
  },
  "ui:328535990359": {
   "src": "8e29664e0dd0",
-  "uk": "Я впевнений, що врешті-решт ми переможемо, але на це підуть роки, і багато хто загине, перш ніж це станеться.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я впевнена, що врешті-решт ми переможемо, але на це підуть роки, і багато хто загине, перш ніж це станеться.",
+  "status": "manual"
  },
  "ui:688585342461": {
   "src": "9b7fdc94198e",
@@ -18961,9 +18747,8 @@
  },
  "ui:113821025677": {
   "src": "108f80f522d7",
-  "uk": "Я сподівався, що ваш друг <em>П’єр</em> очолить опір, але він був поглинений своєю дурною вендетою проти <em>Майора</em>.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Я сподівалася, що ваш друг <em>П’єр</em> очолить опір, але він був поглинений своєю дурною вендетою проти <em>Майора</em>.",
+  "status": "manual"
  },
  "ui:236623762101": {
   "src": "c12b06998559",
@@ -19057,22 +18842,18 @@
  },
  "ui:130557993842": {
   "src": "4f2fbb809f9b",
-  "uk": "Звісно, це не ваша провина. Я звинувачую себе за те, що зосереджувався виключно на моєму батькові та Гран-Ш’єні. Я навіть не помітив, що існує глобальна загроза, поки не стало запізно.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Звісно, це не ваша провина. Я звинувачую себе за те, що зосередилася виключно на батькові та Гран-Ш’єні. Я навіть не помітила, що існує глобальна загроза, поки не стало запізно.",
+  "status": "manual"
  },
  "ui:649234424232": {
   "src": "a738994de7b2",
-  "uk": "До речі, щодо ризиків для здоров’я, я був стривожений, дізнавшись, що хтось експериментував на моєму народі з <em>бойовими наркотиками</em>!",
+  "uk": "До речі, щодо ризиків для здоров’я, я була стривожена, дізнавшись, що хтось експериментував на моєму народі з <em>бойовими наркотиками</em>!",
   "status": "manual"
  },
  "ui:222103454383": {
   "src": "2a5cbe3b4a76",
-  "uk": "Я радий, що ви зупинили виробництво <em>Дізеля</em> в Ландсбаху. Єдині «супер солдати», які коли-небудь були потрібні моїй країні, — це ваші найманці.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я рада, що ви зупинили виробництво <em>Дізеля</em> в Ландсбаху. Єдині «супер солдати», які коли-небудь були потрібні моїй країні, — це ваші найманці.",
+  "status": "manual"
  },
  "ui:630361969231": {
   "src": "08dff9e9c2de",
@@ -19089,9 +18870,8 @@
  },
  "ui:193357851118": {
   "src": "c669f8524da1",
-  "uk": "Звісно, це не була проблема, яку ви мали розв’язати. Та все ж, я хотів би, щоб ви були тут. Не можу придумати нікого кращого, щоб мати справу з «суперсолдатами», ніж ви.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Звісно, це не була проблема, яку ви мали розв’язати. Та все ж, шкода, що вас тут немає. Не можу придумати нікого кращого, щоб мати справу з «суперсолдатами», ніж ви.",
+  "status": "manual"
  },
  "ui:361466433631": {
   "src": "a63516beb1af",
@@ -19176,10 +18956,8 @@
  },
  "ui:787556958391": {
   "src": "7171ee69d6e2",
-  "uk": "Я в сказі! Ви знаєте цю людину?! Цей діамант є важливою частиною історії мого народу. Він має бути в музеї Гран-Ш’єну!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я в люті! Ви знаєте цю людину?! Цей діамант є важливою частиною історії мого народу. Він має бути в музеї Гран-Ш’єну!",
+  "status": "manual"
  },
  "ui:878574781976": {
   "src": "36f36fd374cf",
@@ -19211,24 +18989,18 @@
  },
  "ui:814489178702": {
   "src": "a98e29a4ac4c",
-  "uk": "Я в сказі! Цей діамант є важливою частиною історії мого народу. Він має бути в музеї Гран-Ш’єну!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я в люті! Цей діамант є важливою частиною історії мого народу. Він має бути в музеї Гран-Ш’єну!",
+  "status": "manual"
  },
  "ui:257731151870": {
   "src": "9ba020015853",
-  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізнався, що <em>Корасон Сантьяго</em> постала перед судом і ви розбили її в суді!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізналася, що <em>Корасон Сантьяго</em> постала перед судом і ви розбили її в суді!",
+  "status": "manual"
  },
  "ui:579894714699": {
   "src": "963cf2d3cf8f",
-  "uk": "Моє серце переповнилося, коли я побачив, що її визнали винною у воєнних злочинах, і що <em>Адоніс</em> тепер стикається з позовами та падінням цін на акції.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Моє серце переповнилося, коли я побачила, що її визнали винною у воєнних злочинах, і що <em>Адоніс</em> тепер стикається з позовами та падінням цін на акції.",
+  "status": "manual"
  },
  "ui:445612629345": {
   "src": "8b0620d0dbd9",
@@ -19239,17 +19011,13 @@
  },
  "ui:567703306670": {
   "src": "6c82b8a5bc0d",
-  "uk": "Я впевнений, що тепер у вас буде багато нових контрактів — що означає більше можливостей робити добро у свій власний неповторний спосіб. Щиро бажаю вам успіхів. До побачення.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я впевнена, що тепер у вас буде багато нових контрактів — що означає більше можливостей робити добро у свій власний неповторний спосіб. Щиро бажаю вам успіхів. До побачення.",
+  "status": "manual"
  },
  "ui:214442236338": {
   "src": "f917ed0e2e11",
-  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізнався, що <em>Корасон Сантьяго</em> постала перед судом і була викрита в суді.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізналася, що <em>Корасон Сантьяго</em> постала перед судом і була викрита в суді.",
+  "status": "manual"
  },
  "ui:883435808979": {
   "src": "3bc12f4579ff",
@@ -19267,17 +19035,13 @@
  },
  "ui:934684705211": {
   "src": "799a511eb7a6",
-  "uk": "Я впевнений, що правда зрештою відкриється. Я зроблю все, що в моїх силах, щоб допомогти. До того часу, бажаю вам всього найкращого. До побачення.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я впевнена, що правда зрештою відкриється. Я зроблю все, що в моїх силах, щоб допомогти. До того часу, бажаю вам всього найкращого. До побачення.",
+  "status": "manual"
  },
  "ui:685520217635": {
   "src": "96a5f7d6e792",
-  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізнався, що <em>Корасон Сантьяго</em> постала перед судом, але не було достатньо доказів, щоб її викрити.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Але моя увага привернута до іншого, мій друже. Дозвольте мені сказати лише одну останню річ. Я дізналася, що <em>Корасон Сантьяго</em> постала перед судом, але не було достатньо доказів, щоб її викрити.",
+  "status": "manual"
  },
  "ui:248863713382": {
   "src": "e839dafcd5c7",
@@ -19288,10 +19052,8 @@
  },
  "ui:105264108741": {
   "src": "08ff64bf8462",
-  "uk": "Я можу лише уявити, який удар по вашій репутації це було б. Я впевнений, що правда зрештою відкриється.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я можу лише уявити, який удар по вашій репутації це було б. Я впевнена, що правда зрештою відкриється.",
+  "status": "manual"
  },
  "ui:412536902879": {
   "src": "789c03afedba",
@@ -26599,9 +26361,8 @@
  },
  "terms:641388896067": {
   "src": "a328bc68e208",
-  "uk": "Оригінальні ігри серії Коаліція «Яґеда Альянс 3» 1990-х років висміювали кліше та стереотипи, притаманні бойовикам того часу.<newline><newline>Коаліція «Яґеда Альянс 3» продовжує цю традицію, але також підколює сучасні проблеми та попкультуру.<newline>Ця гра є художнім твором (де багато чого вибухає) і не базується на реальних особах, локаціях чи подіях.<newline><newline>Гравцям рекомендується керуватися власним розсудом та обережністю під час гри<newline>(зокрема, коли вирішувати, яка група ворогів отримає першу гранату).",
-  "status": "ok",
-  "model": "gemma4:26b-a4b-it-q4_K_M"
+  "uk": "Оригінальні ігри Jagged Alliance 1990-х років висміювали кліше та стереотипи, притаманні бойовикам того часу.<newline><newline>Jagged Alliance 3 продовжує цю традицію, але також підколює сучасні проблеми та попкультуру.<newline>Ця гра є художнім твором (де багато чого вибухає) і не базується на реальних особах, локаціях чи подіях.<newline><newline>Гравцям рекомендується керуватися власним розсудом та обережністю під час гри<newline>(зокрема, коли вирішувати, яка група ворогів отримає першу гранату).",
+  "status": "manual"
  },
  "terms:862645020650": {
   "src": "17033dc04b04",
@@ -89588,12 +89349,8 @@
  },
  "conversations:749810934423": {
   "src": "7884197006bc",
-  "uk": "Але як донька президента — і представник із зв’язків з громадськістю, а також секретарка, — я маю певний вплив.",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "мовець — жінка: «я зробила», «я готова»"
-  ]
+  "uk": "Але як донька президента — і представниця із зв’язків з громадськістю, а також секретарка, — я маю певний вплив.",
+  "status": "manual"
  },
  "conversations:297776245235": {
   "src": "d4f2df607ce4",
@@ -115209,12 +114966,8 @@
  },
  "conversations:532140120438": {
   "src": "fdb55b343296",
-  "uk": "Я надто старий для ігор, молода леді, особливо коли я вже знаю всі ходи. Люди не відрізняються від механізмів з годинниковим механізмом. Коли ти застряг у цьому світі так довго, як я, ти схильний знати, що змушує їх працювати.",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "звертання має бути на «ви», а не на «ти»"
-  ]
+  "uk": "Я надто старий для ігор, молода леді, особливо коли я вже знаю всі ходи. Люди нічим не відрізняються від годинникових механізмів. Коли ви застрягли у цьому світі так надовго, як я, ви схильні знати, що змушує їх працювати.",
+  "status": "manual"
  },
  "conversations:675794019522": {
   "src": "2c04f233ddcf",
@@ -117140,8 +116893,7 @@
  "conversations:235751643661": {
   "src": "fa1d89063a37",
   "uk": "Проклятий! Я не хотів, щоб так вийшло! Ви ніколи не повинні були цього дозволяти…",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "status": "manual"
  },
  "conversations:976350543555": {
   "src": "5b901aa505b6",
@@ -118633,9 +118385,8 @@
  },
  "conversations:397026902994": {
   "src": "f0fdbd491b10",
-  "uk": "Так, я Ламі, цілитель тіла і провідник душі. Я піклуюся про людей <em>Вассерґрабу</em> і задовольняю їхні численні потреби. А їхні потреби зросли з того часу, як їхня жадібність принесла лихо цій землі.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0"
+  "uk": "Так, я Ламі, цілителька тіла і провідниця душі. Я піклуюся про людей <em>Вассерґрабу</em> і задовольняю їхні численні потреби. А їхні потреби зросли з того часу, як їхня жадібність принесла лихо цій землі.",
+  "status": "manual"
  },
  "conversations:446249559695": {
   "src": "0bbd8f8f669b",
@@ -118992,10 +118743,8 @@
  },
  "conversations:733828975355": {
   "src": "b14edb248ffc",
-  "uk": "Я впевнена, що так воно і є!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я впевнений, що так воно і є!",
+  "status": "manual"
  },
  "conversations:790493727070": {
   "src": "b9757b0ccf8e",
@@ -132065,10 +131814,8 @@
  },
  "banters:485989604595": {
   "src": "f4a935dda4e3",
-  "uk": "Я так рада, що <em>містер Дитч</em> все ще живий. Ще раз дякую за те, що допомогли нам знайти одне одного. Ми більше не будемо одні.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я так радий, що <em>містер Дитч</em> все ще живий. Ще раз дякую за те, що допомогли нам знайти одне одного. Ми більше не будемо одні.",
+  "status": "manual"
  },
  "banters:907770301301": {
   "src": "2bc17fc79cdd",
@@ -137284,10 +137031,8 @@
  },
  "banters:593518562364": {
   "src": "0a486f753f16",
-  "uk": "Тут легко було дістатися з даху лазні, але я впевнений, що це вікно не вибивали.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Тут легко було дістатися з даху лазні, але я впевнена, що це вікно не вибивали.",
+  "status": "manual"
  },
  "banters:333546443857": {
   "src": "cc0e56da7f93",
@@ -138912,11 +138657,8 @@
  },
  "banters:849966847476": {
   "src": "b1cf66a3cc8d",
-  "uk": "Чого я не здивована? Знову якась баба дає мені список вимог, перш ніж віддасть свою винагороду.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true,
-  "uk_before_proof": "Чого я не здивована? Знову якась баба дає мені список вимог, перш ніж віддати свою винагороду."
+  "uk": "Чого я не здивований? Знову якась баба дає мені список вимог, перш ніж віддасть свою винагороду.",
+  "status": "manual"
  },
  "banters:883268529327": {
   "src": "d804fb7ad7ab",
@@ -143657,7 +143399,7 @@
  },
  "banters:698033502455": {
   "src": "d4e00fad8386",
-  "uk": "Я дивилася на нього багато разів. Щоразу мене захоплює.",
+  "uk": "Я перечитував його багато разів. Щоразу мене захоплює.",
   "status": "manual"
  },
  "banters:174793133371": {
@@ -149555,12 +149297,8 @@
  },
  "banters:790768851548": {
   "src": "37eae35ee361",
-  "uk": "Я чую, як ви випинаєтесь, Сантьяго. Проявіть повагу — Біфф був боягузом, але помер як чоловік. Саме тому існує <em>Легіон</em> — щоб перетворити людей у цій країні на воїнів.",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "теги не збігаються: ['<em>', '</em>'] -> []"
-  ]
+  "uk": "Я чую, як ти випинаєшся, Сантьяго. Май повагу — Біфф був боягузом, але помер як чоловік. Саме тому існує <em>Легіон</em> — щоб перетворити людей у цій країні на воїнів.",
+  "status": "manual"
  },
  "banters:648260665877": {
   "src": "dd1865e1c914",
@@ -149591,12 +149329,8 @@
  },
  "banters:385380622225": {
   "src": "5fda53f8c54b",
-  "uk": "Я навіть можу сказати, як ви шкодуєте, що він насправді вижив, Сантьяго. Я з вами згодна — Біфф боягуз і мав померти як чоловік. Саме тому існує <em>Легіон</em> — ми перетворюємо людей у цій країні на воїнів і виганяємо жадібних корпорацій та їхніх посіпак, як ви та Біфф.",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "теги не збігаються: ['<em>', '</em>'] -> []"
-  ]
+  "uk": "Я навіть можу сказати, як ти шкодуєш, що він насправді вижив, Сантьяго. Я з тобою згодна — Біфф боягуз і мав померти як чоловік. Саме тому існує <em>Легіон</em> — ми перетворюємо людей у цій країні на воїнів і виганяємо жадібних корпорантів та їхніх посіпак, як ти та Біфф.",
+  "status": "manual"
  },
  "banters:898211045708": {
   "src": "dd1865e1c914",
@@ -149723,10 +149457,8 @@
  },
  "banters:239468169321": {
   "src": "e0f1dc3b7cba",
-  "uk": "Мама буде так рада, коли я розповім їй про нових друзів, яких я знайшла, і про всіх людей, яких я вбила. Вона завжди хвилюється через це. Що я не заводжу друзів, тобто.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Мама буде так рада, коли я розповім їй про нових друзів, яких я знайшов, і про всіх людей, яких я вбив. Вона завжди хвилюється через це. Що я не заводжу друзів, тобто.",
+  "status": "manual"
  },
  "banters:416247490998": {
   "src": "b72e12bfaf10",
@@ -155138,10 +154870,8 @@
  },
  "voice:141409090332": {
   "src": "8301ee5e5887",
-  "uk": "Я поранений!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я поранена!",
+  "status": "manual"
  },
  "voice:896346988249": {
   "src": "3af3d293f8f6",
@@ -155166,10 +154896,8 @@
  },
  "voice:754598057078": {
   "src": "4ced83566768",
-  "uk": "Я поранений!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я поранена!",
+  "status": "manual"
  },
  "voice:920344061717": {
   "src": "dca286de9b41",
@@ -160007,10 +159735,8 @@
  },
  "voice:731040045341": {
   "src": "d817e771e868",
-  "uk": "Стійте! Стійте!!! Я... я... я готовий обговорити умови капітуляції.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Стійте! Стійте!!! Я... я... я готова обговорити умови капітуляції.",
+  "status": "manual"
  },
  "voice:879751605912": {
   "src": "13b921567fb7",
@@ -160487,12 +160213,8 @@
  },
  "voice:772281468390": {
   "src": "c4d95543da75",
-  "uk": "Я тебе розтрощу!",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "звертання має бути на «ви», а не на «ти»"
-  ]
+  "uk": "Я вас розтрощу!",
+  "status": "manual"
  },
  "voice:714855618129": {
   "src": "2a4cf026b842",
@@ -162226,7 +161948,7 @@
  },
  "voice:350545597454": {
   "src": "1127927eafc8",
-  "uk": "Чорт забирай! Я не хотів, щоб так вийшло.",
+  "uk": "Чорт забирай! Я не хотіла, щоб так вийшло.",
   "status": "manual"
  },
  "voice:754480614371": {
@@ -171011,10 +170733,8 @@
  },
  "voice:852776115759": {
   "src": "208f0e09bd24",
-  "uk": "Я поранений!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я поранена!",
+  "status": "manual"
  },
  "voice:641660994188": {
   "src": "91ff93d8292d",
@@ -182884,9 +182604,7 @@
  "voice:437662582218": {
   "src": "673785f23a31",
   "uk": "Вибач, Блад. Я не хотів, щоб так вийшло.",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "status": "manual"
  },
  "voice:770232340839": {
   "src": "28f22ce66af8",
@@ -184875,10 +184593,8 @@
  },
  "voice:473923694101": {
   "src": "8301ee5e5887",
-  "uk": "Я поранена!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я поранений!",
+  "status": "manual"
  },
  "voice:251415516020": {
   "src": "871e3e318f35",
@@ -184889,10 +184605,8 @@
  },
  "voice:768123769985": {
   "src": "4ced83566768",
-  "uk": "Я поранена!",
-  "status": "ok",
-  "model": "hf.co/INSAIT-Institute/MamayLM-Gemma-3-12B-IT-v2.0-GGUF:Q8_0",
-  "proofed": true
+  "uk": "Я поранений!",
+  "status": "manual"
  },
  "voice:875160147135": {
   "src": "3af3d293f8f6",
@@ -190869,12 +190583,8 @@
  },
  "voice:647653533675": {
   "src": "ff896fcc74bf",
-  "uk": "Я б їх прикінчив, якби ця гидота не зламалася!",
-  "status": "ok",
-  "model": "restored:03_after_proofread",
-  "errors_after_redo": [
-   "«хрінь» — суржик, використовуй українську лайку (дідько, холера, лайно)"
-  ]
+  "uk": "Я б їх прикінчила, якби ця гидота не зламалася!",
+  "status": "manual"
  },
  "voice:757236108684": {
   "src": "91838a1c73d8",

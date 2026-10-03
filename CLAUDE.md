@@ -150,6 +150,8 @@ sometimes wrong) → verdict in Ukrainian → `fix.py` (validates, sets `manual`
   **Do not change `classify()` after translation starts — the file is part of the key.**
 - **Substitutions:** tags insert names/numbers in one fixed (nominative) form. The engine supports gender variants
   (`id+1` = F, `id+2` = N, `Gender` column, `<ByGender()>`), but no shipped language uses them.
+- **Actor `narrator`** (104 rows, XTemplate Intro/Outro) is Emma LaFontaine writing in first person → feminine forms
+  (fixed by hand 2026-10-03, all manual).
 - **Player:** unseen commander, gender undefined → neutral «ви». Mercs have fixed genders (Actor → glossary notes).
 - **Fonts:** `Packs/Fonts.hpk`. HMGothic (Regular/Rough A/B), Source Code Pro (all weights), LibelSuit have full Ukrainian
   Cyrillic incl. ґ є і ї, «», —, …, ’. Missing: `ʼ` (U+02BC) everywhere → use ’ (validator `forbidden`);
@@ -179,7 +181,10 @@ sometimes wrong) → verdict in Ukrainian → `fix.py` (validates, sets `manual`
      confirmed 443/567; embeddings shift detector (+18 strong). MamayLM retranslated 424 lines ONE BY ONE →
      gpt-oss A/B old/new → 238 new applied, 71 old kept; 88 "both bad"/unvalidated → Sonnet (85 fixed).
      Shift-detector + gpt-oss on voice barks is mostly false positives; only gap > 0.1 is worth checking.
-  3. `work/ru_check.csv` — 52 leftovers (gender 36, ти/ви 18), low priority.
+  3. `work/ru_check.csv` — gender part DONE 2026-10-03 (Emma intro/outro, 30 gender rows reviewed by hand, +11 from
+     `scripts/check_gender_adj.py`). **Left: 39 ти/ви rows** (`python scripts/check_ru.py` regenerates the csv).
+     In-game fixes 2026-10-03: key names (ui order 739–846) → skip (English), «Jagged Alliance» never translated
+     (glossary + `common.KEEP_LATIN`). Snapshot 13_before_keynames.
   4. Build mod (`python scripts/build_mod.py`), user copies `mod/dist/JA3UkrLoc` to `%AppData%\Jagged Alliance 3\Mods`,
      tests in game (start of campaign, A.I.M., first conversation, combat, Sat View), fix overflow/strings.
   5. Commit (user's permission!) translations.json + new scripts (check_ru, ru_ref, redo_ru_check, restore_snapshot,
