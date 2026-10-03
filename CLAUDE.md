@@ -71,7 +71,6 @@ scripts/                   # generic pipeline, works on strings.json
   build_mod.py             # JA3: translations.json -> mod/dist/<folder> + zip, --install to %AppData%
 mod/                       # metadata.lua / items.lua templates (@PLACEHOLDERS@ filled by build_mod.py), README_UA.txt,
                            # installer/install.bat + uninstall.bat (CRLF, UTF-8 + chcp 65001; copied to zip root)
-reference/dressmaker-unity/  # worked example from another game (Unity + BepInEx); not used here
 ```
 
 ## Commands
