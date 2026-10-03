@@ -41,6 +41,28 @@ def read_table(game, lang="English"):
     return list(csv.reader(io.StringIO(data.decode("utf-8-sig"), newline="")))[1:]
 
 
+def speaker_genders(game):
+    """Actor -> 'f'/'m': з UnitDataCompositeDef (Packs/Data.hpk), інакше за назвою (NPC_VillagerFemale_01)."""
+    pack = Hpk(Path(game) / "Packs" / "Data.hpk")
+    out = {}
+    for name in pack.files:
+        if name.startswith("UnitDataCompositeDef/"):
+            m = re.search(r"'gender', \"(\w+)\"", pack.read(name).decode("utf-8", "replace"))
+            if m:
+                out[name.split("/")[1][:-4]] = "f" if m.group(1) == "Female" else "m"
+    return out
+
+
+def gender_of(actor, units):
+    if actor in units:
+        return units[actor]
+    if re.search(r"(?i)female|woman|girl|lady", actor):
+        return "f"
+    if re.search(r"(?i)male|man\b|boy|guy", actor):
+        return "m"
+    return ""
+
+
 def classify(row):
     cls = row[CONTEXT].split(" ", 1)[0]
     loc = row[LOCATION].replace("Trunk\\", "").replace("\\", "/")
@@ -63,6 +85,7 @@ def main():
     args = ap.parse_args()
 
     out, n = [], Counter()
+    units = speaker_genders(args.game)
     for order, row in enumerate(read_table(args.game)):
         fk = classify(row)
         if fk is None or not row[TEXT].strip():
@@ -73,7 +96,8 @@ def main():
         elif row[SECTION] and fk == "banters":
             comment += f" | сценка: {row[SECTION]}"
         out.append({"key": f"{fk}:{row[ID]}", "file": fk, "id": row[ID], "order": order,
-                    "en": row[TEXT], "comment": comment, "speaker": row[ACTOR]})
+                    "en": row[TEXT], "comment": comment, "speaker": row[ACTOR],
+                    "gender": gender_of(row[ACTOR], units) if row[ACTOR] else ""})
         n[fk] += 1
     save_json(STRINGS, out)
     if args.ref:

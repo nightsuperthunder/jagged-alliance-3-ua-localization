@@ -13,8 +13,9 @@ import csv
 import json
 import time
 
-from common import (DEFAULT_MODEL, ORDER, TRANSLATIONS, WORK, glossary_terms, load_json,
+from common import (autofix, needs_translit, DEFAULT_MODEL, ORDER, TRANSLATIONS, WORK, glossary_terms, load_json,
                     load_strings, save_json, system_prompt, validate)
+from ru_ref import grammar_errors, note as ru_note
 from llm import (REQUEST_ERRORS, ensure_ollama, add_model_args, call_translate, file_hint, glossary_for,
                  item_head, make_batches, ui_terms)
 
@@ -40,7 +41,7 @@ def build(batch, fk, terms, ui):
     u = glossary_for(text, ui)
     if u:
         parts.append("НАПИСИ ІНТЕРФЕЙСУ (у лапках «…», не відмінювати):\n" + "\n".join(u))
-    items = [f"{item_head(i, x)}\nEN: {json.dumps(x['en'], ensure_ascii=False)}\n"
+    items = [f"{item_head(i, x, ru_note(x))}\nEN: {json.dumps(x['en'], ensure_ascii=False)}\n"
              f"UK: {json.dumps(x['uk'], ensure_ascii=False)}" for i, x in enumerate(batch, 1)]
     parts.append(f"ВІДРЕДАГУЙ ці {len(batch)} перекладів. Відповідь — JSON {{\"t\": [{{\"n\": номер, "
                  f"\"uk\": \"виправлений або незмінний переклад\"}}]}} з рівно {len(batch)} елементами.\n\n"
@@ -90,7 +91,7 @@ def main():
         rows = []
         for s in sorted((x for x in strings if x["file"] == fk), key=lambda x: x["order"]):
             t = tr.get(s["key"])
-            if t and t["status"] == "ok" and not t.get("proofed") and t.get("model") != "dup":
+            if t and t["status"] == "ok" and not t.get("proofed") and t.get("model") not in ("dup", "translit") and not needs_translit(s):
                 rows.append({**s, "uk": t["uk"]})
         if args.limit:
             rows = rows[:args.limit]
@@ -104,10 +105,10 @@ def main():
             bc = 0
             for i, r in enumerate(batch, 1):
                 t = tr[r["key"]]
-                new = res.get(i)
+                new = autofix(r["en"], res.get(i))
                 t["proofed"] = True
                 # правка редактора приймається, лише якщо проходить перевірку
-                if new and new != r["uk"] and not validate(r["en"], new, allowed):
+                if new and new != r["uk"] and not validate(r["en"], new, allowed) and not grammar_errors(r, new):
                     t["uk_before_proof"] = r["uk"]
                     t["uk"] = new
                     lw.writerow([r["key"], r["en"], r["uk"], new])

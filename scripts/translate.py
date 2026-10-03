@@ -13,8 +13,9 @@ import json
 import re
 import time
 
-from common import (CFG, DEFAULT_MODEL, ORDER, TRANSLATIONS, glossary_terms, is_stub,
+from common import (autofix, needs_translit, ru_mask, ru_translit, ru_unmask, CFG, DEFAULT_MODEL, ORDER, TRANSLATIONS, glossary_terms, is_stub,
                     load_json, load_strings, save_json, src_hash, system_prompt, validate)
+from ru_ref import grammar_errors, note as ru_note
 from llm import (REQUEST_ERRORS, ensure_ollama, add_model_args, call_translate, file_hint, glossary_for,
                  item_head, make_batches, ui_terms)
 
@@ -38,7 +39,7 @@ def build_prompt(batch, prev, nxt, fk, terms, ui=()):
     if nxt:
         parts.append("НАСТУПНІ РЯДКИ (лише для контексту, НЕ перекладай):\n"
                      + "\n".join(f"EN: {x['en']}" for x in nxt))
-    items = [f"{item_head(i, x, EXTRA_NOTES.get(x['en'].strip(), ''))}\n"
+    items = [f"{item_head(i, x, '; '.join(n for n in (EXTRA_NOTES.get(x['en'].strip(), ''), ru_note(x)) if n))}\n"
              f"EN: {json.dumps(x['en'], ensure_ascii=False)}" for i, x in enumerate(batch, 1)]
     parts.append(
         f"ПЕРЕКЛАДИ ці {len(batch)} рядків. Відповідь — JSON {{\"t\": [{{\"n\": номер, \"uk\": \"переклад\"}}]}} "
@@ -52,6 +53,7 @@ def main():
     ap.add_argument("--file", choices=ORDER, action="append", help="лише ці файли (можна кілька разів)")
     ap.add_argument("--limit", type=int, help="максимум рядків на файл (для проби)")
     ap.add_argument("--start", type=int, default=0, help="пропустити перші N рядків файлу (для проби)")
+    ap.add_argument("--keys", help="файл зі списком ключів (по одному в рядку) — перекладати лише їх")
     ap.add_argument("--out", default=str(TRANSLATIONS), help="куди писати переклади")
     ap.add_argument("--redo-errors", action="store_true", help="перекласти заново рядки з помилками")
     ap.add_argument("--redo-all", action="store_true", help="перекласти заново все (крім ручних правок)")
@@ -66,10 +68,12 @@ def main():
     system = system_prompt()
     tr = load_json(args.out, {})
     files = args.file or ORDER
+    only = set(open(args.keys, encoding="utf-8").read().split()) if args.keys else None
     total_done, t0 = 0, time.time()
 
     for fk in [f for f in ORDER if f in files]:
         rows = sorted((x for x in strings if x["file"] == fk), key=lambda x: x["order"])[args.start:]
+        # з --keys перекладаємо лише ці рядки, але сусідні лишаються в rows як контекст розмови
         if args.limit:
             rows = rows[:args.limit]
         index = {r["key"]: i for i, r in enumerate(rows)}
@@ -80,6 +84,8 @@ def main():
                       if r["key"] in tr and tr[r["key"]]["status"] in ("ok", "manual")
                       and tr[r["key"]].get("src") == src_hash(r["en"])}
         for r in rows:
+            if only is not None and r["key"] not in only:
+                continue
             cur = tr.get(r["key"])
             src = src_hash(r["en"])
             if cur and cur["status"] == "manual":
@@ -90,15 +96,23 @@ def main():
                 continue
             if cur and cur["status"] == "error" and not (args.redo_errors or args.redo_all):
                 continue
-            if is_stub(r["en"]) or not re.search(r"[A-Za-z]", r["en"]):
+            if is_stub(r["en"], r.get("comment", "")) or not re.search(r"[A-Za-zА-Яа-яЁё]", r["en"]):
                 tr[r["key"]] = {"src": src, "status": "skip"}
+                continue
+            if needs_translit(r) and not re.search(r"[A-Za-z]", r["en"]):
+                tr[r["key"]] = {"src": src, "uk": ru_translit(r["en"]), "status": "ok", "model": "translit"}
                 continue
             if r["en"] in done_by_en and not args.redo_all:
                 tr[r["key"]] = {"src": src, "uk": done_by_en[r["en"]], "status": "ok", "model": "dup"}
                 continue
+            if needs_translit(r):
+                masked, spans = ru_mask(r["en"])
+                note = "; ".join(f"{t} — російська вставка, гра покаже її як «{v}»" for t, v in spans.items())
+                r = dict(r, en=masked, en_orig=r["en"], spans=spans,
+                         comment=(r.get("comment", "") + " | " + note).strip(" |"))
             todo.append(r)
         save_json(args.out, tr)
-        ui = ui_terms(strings, tr) if fk != CFG.get("ui_file") else []
+        ui = ui_terms(strings, tr) if fk != CFG.get("ui_file") else []  # написи UI, назви дій/станів/предметів
         if CFG.get("ui_file") and fk != CFG["ui_file"] and not ui:
             print("  (увага: інтерфейс ще не перекладено — назви кнопок не будуть узгоджені)")
         print(f"\n=== {fk}: треба перекласти {len(todo)} із {len(rows)}"
@@ -127,9 +141,13 @@ def main():
                         print(f"  ! запит не вдався ({e}), повтор…")
                         res = {}
                     for i, r in enumerate(g, 1):
-                        uk = res.get(i, "")
-                        errs = validate(r["en"], uk, allowed_latin)
-                        rec = {"src": src_hash(r["en"]), "uk": uk, "status": "error" if errs else "ok",
+                        en = r.get("en_orig", r["en"])
+                        uk = autofix(r["en"], res.get(i, ""))
+                        errs = validate(r["en"], uk, allowed_latin)  # для рядків з <rN> — до підстановки
+                        if "spans" in r:
+                            uk = ru_unmask(uk, r["spans"])
+                        errs += grammar_errors(r, uk)
+                        rec = {"src": src_hash(en), "uk": uk, "status": "error" if errs else "ok",
                                "model": args.model}
                         if errs:
                             rec["errors"] = errs

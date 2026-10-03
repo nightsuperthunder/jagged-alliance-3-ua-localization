@@ -1,4 +1,6 @@
-"""Повний нічний прогін: переклад -> повтор помилок -> вичитка -> статистика -> CSV для перевірки.
+"""Повний нічний прогін: переклад -> повтор помилок -> рід/ти-ви (RU) -> вичитка -> статистика і CSV ->
+пошук смислових помилок (зворотний переклад + велика модель) -> рід/ти-ви ще раз по фінальному тексту.
+Кожен крок можна перервати й запустити знову — продовжить з місця.
 Поки працює, не дає Windows заснути (SetThreadExecutionState, налаштування не змінює).
 
   python scripts/run_all.py
@@ -9,15 +11,24 @@ import sys
 import time
 from pathlib import Path
 
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8")  # лог у файл інакше пишеться в cp1252 і падає на кирилиці
+    except Exception:
+        pass
+
 HERE = Path(__file__).resolve().parent
 WORK = HERE.parent / "work"
 STEPS = [
     ["translate.py"],
     ["translate.py", "--redo-errors"],
+    ["check_ru.py", "--csv", str(WORK / "ru_check_before_proof.csv")],
     ["proofread.py"],
     ["review.py", "stats"],
     ["review.py", "export", "--errors", "--csv", str(WORK / "review_errors.csv")],
     ["review.py", "export"],
+    ["find_issues.py"],
+    ["check_ru.py"],
 ]
 
 

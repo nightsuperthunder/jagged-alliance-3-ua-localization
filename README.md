@@ -5,7 +5,7 @@
 Мод для вбудованого менеджера модів JA3: таблиця перекладу підміняє англійський текст, файли гри не змінюються.
 
 ## Встановлення (коли вийде реліз)
-1. Розпакувати теку `JA3 Ukrainian Localization` в `%AppData%\Jagged Alliance 3\Mods\`.
+1. Розпакувати теку `JA3UkrLoc` в `%AppData%\Jagged Alliance 3\Mods\`.
 2. У грі: Mod Manager → увімкнути «Українська локалізація».
 3. Мова гри — English (Options → Gameplay → Language).
 

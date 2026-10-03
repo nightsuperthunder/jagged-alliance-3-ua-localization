@@ -83,6 +83,7 @@ PH_RE = re.compile(r"\{[^{}]*\}")
 EXTRA_PH = [re.compile(p) for p in _V.get("extra_placeholder_regex", [])]
 PREFIX_RE = re.compile(_V["prefix_regex"]) if _V.get("prefix_regex") else None
 STUB_RE = re.compile(_V["stub_regex"]) if _V.get("stub_regex") else None
+SKIP_COMMENT_RE = re.compile(_V["skip_comment_regex"]) if _V.get("skip_comment_regex") else None
 FORBIDDEN = _V.get("forbidden", {})
 CYR_RE = re.compile(r"[А-Яа-яІіЇїЄєҐґ]")
 LAT_WORD_RE = re.compile(r"\b[A-Za-z]{4,}\b")
@@ -92,12 +93,85 @@ def strip_prefix(s):
     return PREFIX_RE.sub("", s) if PREFIX_RE else s
 
 
-def is_stub(en):
-    return bool(STUB_RE and STUB_RE.fullmatch(en.strip()))
+def is_stub(en, comment=""):
+    """Рядок, який лишаємо як у грі: заглушка за stub_regex або поле за skip_comment_regex (логіни, e-mail)."""
+    return bool((STUB_RE and STUB_RE.fullmatch(en.strip()))
+                or (SKIP_COMMENT_RE and comment and SKIP_COMMENT_RE.search(comment)))
 
 
 def has_placeholders(en):
     return bool(PH_RE.search(en) or any(r.search(en) for r in EXTRA_PH))
+
+
+_RU_LAT = dict(zip("абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+                   ["a", "b", "v", "g", "d", "e", "yo", "zh", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r",
+                    "s", "t", "u", "f", "h", "ts", "ch", "sh", "shch", "", "y", "", "e", "yu", "ya"]))
+RU_WORD_RE = re.compile(r"[А-Яа-яЁё]+")
+KEEP_CYR_SPEAKERS = set(CFG.get("keep_cyrillic_speakers", []))
+
+
+def ru_translit(text):
+    """Російські вставки (Іван: «Молодец!») -> латиниця, як в офіційній RU-локалізації (Molodets!).
+    Теги не чіпає. Рішення користувача: російське в українському тексті — лише транслітом."""
+    def word(m):
+        w = m.group(0)
+        out = "".join(_RU_LAT.get(c.lower(), c) for c in w)
+        if w.isupper() and len(w) > 1:
+            return out.upper()
+        return out[:1].upper() + out[1:] if w[0].isupper() else out
+    parts = re.split(r"(<[^<>]+>)", text)
+    return "".join(p if i % 2 else RU_WORD_RE.sub(word, p) for i, p in enumerate(parts))
+
+
+RU_SPAN_RE = re.compile(r"[А-Яа-яЁё]+(?:[\s,\-–—]+[А-Яа-яЁё]+)*")
+
+
+def ru_mask(text):
+    """Російські фрази -> теги <r1>, <r2>… (модель зберігає теги, але перекладає латиницю).
+    Повертає (текст із тегами, {тег: транслітерація})."""
+    spans = {}
+
+    def sub(m):
+        tag = f"<r{len(spans) + 1}>"
+        spans[tag] = ru_translit(m.group(0))
+        return tag
+    parts = re.split(r"(<[^<>]+>)", text)
+    return "".join(p if i % 2 else RU_SPAN_RE.sub(sub, p) for i, p in enumerate(parts)), spans
+
+
+def ru_unmask(text, spans):
+    for tag, val in spans.items():
+        text = text.replace(tag, val)
+    return text
+
+
+def needs_translit(row):
+    return bool(RU_WORD_RE.search(TAG_RE.sub("", row["en"]))) and row.get("speaker") not in KEEP_CYR_SPEAKERS
+
+
+def autofix(en, uk):
+    """Механічні виправлення до перевірки (без моделі): апостроф ' -> ’ між українськими літерами,
+    прямі лапки "…" -> «…» поза тегами, якщо їх парна кількість; зайве тире «— » на початку."""
+    if not uk:
+        return uk
+    if re.match(r"\s*[—–-]\s", uk) and not re.match(r"\s*[—–-]", en):
+        uk = re.sub(r"^\s*[—–-]\s*", "", uk)  # модель додає тире діалогу, якого немає в оригіналі
+    parts = re.split(r"(<[^<>]+>)", uk)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r"(?<=[А-Яа-яІіЇїЄєҐґ])'(?=[А-Яа-яІіЇїЄєҐґ])", "’", parts[i])
+    text = "".join(parts[::2])
+    if text.count('"') and text.count('"') % 2 == 0:
+        opened = False
+        for i in range(0, len(parts), 2):
+            out = []
+            for ch in parts[i]:
+                if ch == '"':
+                    out.append("»" if opened else "«")
+                    opened = not opened
+                else:
+                    out.append(ch)
+            parts[i] = "".join(out)
+    return "".join(parts)
 
 
 def validate(en, uk, allowed_latin=()):
@@ -111,7 +185,7 @@ def validate(en, uk, allowed_latin=()):
     for r in EXTRA_PH:
         core = r.sub("", core)
     core = core.strip()
-    if ((not re.search(r"[A-Za-z]{2,}", core) and re.search(r"[А-Яа-яІіЇїЄєҐґ]{3,}", uk))
+    if ((not re.search(r"[A-Za-zА-Яа-яЁё]{2,}", core) and re.search(r"[А-Яа-яІіЇїЄєҐґ]{3,}", uk))
             or (re.fullmatch(r"[IVXLC]+", core) and uk != en)):
         # рядок лише з плейсхолдерів/розділових знаків або римська цифра — має лишитися як є
         errs.append("цей рядок не треба перекладати — залиш точно як в оригіналі")
@@ -133,8 +207,9 @@ def validate(en, uk, allowed_latin=()):
         # дозволяємо, якщо рядок — це лише імена з глосарію / теги
         if re.search(r"[A-Za-z]{2,}", core) and len(core) > 3 and core not in allowed_latin:
             errs.append("немає кирилиці — схоже, не перекладено")
+    translit = set(LAT_WORD_RE.findall(ru_translit(en))) if RU_WORD_RE.search(en) else set()  # Molodets тощо
     leftover = [w for w in LAT_WORD_RE.findall(TAG_RE.sub("", strip_prefix(uk)))
-                if w not in allowed_latin]
+                if w not in allowed_latin and w not in translit]
     if len(leftover) >= 3:
         errs.append(f"залишилися англійські слова: {leftover[:6]}")
     # модель любить обгортати весь рядок у «…»; пробіл чи крапка після » не мають це ховати
@@ -153,6 +228,21 @@ def validate(en, uk, allowed_latin=()):
         errs.append("подвійні лапки «“…”» — лишіть тільки «…»")
     if re.search(r"[!?…]\.$", uk.strip()) and not re.search(r"[!?…]\.$", en.strip()):
         errs.append("зайва крапка після !, ? або …")
+    uk_text = TAG_RE.sub("", uk)
+    if re.search(r"[А-Яа-яІіЇїЄєҐґ]'[А-Яа-яІіЇїЄєҐґ]", uk_text):
+        errs.append("апостроф у словах пиши як ’ (м’ята), а не '")
+    if '"' in uk_text:
+        errs.append('лапки пиши як «…», а не "…"')
+    if (re.search(r"[A-Za-z0-9)>]$", en.rstrip()) and uk.rstrip().endswith(".")
+            and not uk.rstrip().endswith("..")):
+        errs.append("зайва крапка в кінці — в оригіналі її немає")
+    lead = re.match(r"\s*(<[^<>/]+>)", en)
+    if lead and not re.match(r"\s*" + re.escape(lead.group(1)), uk):
+        tag = lead.group(1)
+        name = re.match(r"<(\w+)", tag)
+        paired = name and f"</{name.group(1)}>" in en
+        if not paired:
+            errs.append(f"тег {tag} стоїть на початку рядка — залиш його на початку")
     for bad, msg in FORBIDDEN.items():
         if bad in uk:
             errs.append(msg)

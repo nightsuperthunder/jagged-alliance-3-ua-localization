@@ -20,6 +20,7 @@ work/test_*.json
 work/backtranslate.json
 work/context_review_state.json
 work/suspects.txt
+work/shift_candidates.json
 work/_*
 
 __pycache__/
@@ -30,3 +31,6 @@ __pycache__/
 .claude/settings.local.json
 .idea/
 .vscode/
+
+# local snapshots of translations.json after each pipeline stage
+work/snapshots/

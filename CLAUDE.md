@@ -84,6 +84,7 @@ reference/dressmaker-unity/  # worked example from another game (Unity + BepInEx
 | Full run (background) | `python scripts/run_all.py` (translate → redo errors → proofread → stats → CSVs) |
 | Review in Excel | `python scripts/review.py export [--errors]` → edit `uk` → `review.py import [--csv F]` |
 | Meaning errors | `python scripts/find_issues.py` → skim `work/context_review.csv` → `review.py import --csv …` |
+| Gender & ти/ви vs RU | `python scripts/export_strings.py --ref Russian` once → `python scripts/check_ru.py` → `work/ru_check.csv`; retranslate flagged: `python scripts/redo_ru_check.py [--only address\|gender]` |
 | Look up / fix | `python scripts/lookup.py <key or id> [--ctx N]` / `--search "…"`; `python scripts/fix.py <key> "текст"`, `--json F`, `--skip K`, `--replace OLD NEW --dry` |
 
 **Community fix batch:** user sends lines + what's wrong → `lookup.py` for context → judge the English (players are
@@ -120,14 +121,19 @@ sometimes wrong) → verdict in Ukrainian → `fix.py` (validates, sets `manual`
   Loader (`CommonLua/Core/localization.lua`): reads columns 1 (id), 2 (text), 3 (translated_new), 5 (translated), 7 (gender),
   skips the first row; in English the priority is col 3 → col 2 → col 5. A row with all three empty wipes the string —
   never emit rows without a translation.
-- **Delivery:** a regular mod with a `ModItemLocTable` (`language = "English"`) — the officially documented way for
-  unsupported languages: the player keeps the game in English and enables the mod. Ukrainian is not in the engine's
-  `AllLanguages`, so a `Local/Ukrainian.hpk` would not show up in the options. Mod folder:
-  `%AppData%\Jagged Alliance 3\Mods\<folder>\{metadata.lua, items.lua, Ukrainian.csv}`; the csv path inside the game is
-  `Mod/<mod id>/Ukrainian.csv`. Steam Workshop upload is done from the in-game Mod Editor (it re-saves metadata.lua and
-  reportedly resets the loctable language to "Any" — check after saving). `lua_revision` must be ≥ 233360.
-  Community guide: https://steamcommunity.com/sharedfiles/filedetails/?id=3667341845 (claims a shortened CSV breaks
-  conversation subtitles on the satellite view — unverified; our CSV keeps the game's column positions).
+- **Delivery (verified in game 2026-10-01):** a regular mod, game language stays English. Mod folder
+  `%AppData%\Jagged Alliance 3\Mods\JA3UkrLoc\{metadata.lua, items.lua, English.csv, Code/UkrLoc.lua}`
+  (templates in `mod/`, filled by `build_mod.py`). Ukrainian is not in the engine's `AllLanguages`, so a separate
+  language is impossible. Gotchas found the hard way:
+  - `metadata.lua` `loctables[].filename` is relative (`English.csv`) — `ModsLoadLocTables` prepends `Mod/<id>/`;
+    the dev sample's `Mod/<id>/x.csv` there resolves to a doubled path and is silently skipped.
+    `items.lua` `ModItemLocTable.filename` is the full `Mod/<id>/English.csv`.
+  - The Steam guide (https://steamcommunity.com/sharedfiles/filedetails/?id=3667341845) recommends JA3_CommonLib;
+    we don't need it: `Code/UkrLoc.lua` wraps `LoadTranslationTables` and re-applies our CSV after every rebuild of
+    the table + once 3 s after start, and logs `[UkrLoc] … probe = <translated OPTIONS>` to the game log.
+  - Mod code runs in a sandboxed env: no `io.*`, no `AsyncFileToString` (see `ModEnvBlacklist` in Mod.lua).
+  - Game log: `%AppData%\Jagged Alliance 3\logs\JA3.exe-*.log` (readable with Read/Grep; `[mod]` lines list loaded mods).
+  - Workshop upload goes through the in-game Mod Editor (re-saves metadata.lua — re-check loctables/code after).
 - **Markup:** everything is `<…>` tags (1086 distinct): formatting (`<em>` ×4872, `<newline>`, `<bullet_point>`,
   `<color R G B>`, `<style X>`, `<right>`, `<flavor>`, `<error>`), substitutions (`<Nick>`, `<name>`, `<amount>`,
   `<money(500)>`, `<SectorName('H2')>`, `<GameTerm('Overwatch')>`, `<u(name)>`), skill-check markers at line start
@@ -148,20 +154,44 @@ sometimes wrong) → verdict in Ukrainian → `fix.py` (validates, sets `manual`
   Cyrillic incl. ґ є і ї, «», —, …, ’. Missing: `ʼ` (U+02BC) everywhere → use ’ (validator `forbidden`);
   **Source Code Pro Italic has no Cyrillic** (8 text styles) → `build_mod.py` copies the official Russian table's
   TextStyle overrides (Italic → Regular). No extra fonts needed.
+- **Installing for tests:** files the agent writes under `%AppData%` land in the agent's sandbox overlay and are
+  invisible to the game/user (confirmed 2026-09-30: the game and `dir` show only mods the user created). So
+  `build_mod.py --install` is useless from the agent; the user copies `mod/dist/JA3UkrLoc` into
+  `%AppData%\Jagged Alliance 3\Mods` by hand. The repo folder (D:) is shared normally.
 - **Voices:** English only (`Local/Voices/English.hpk`); text is the subtitle, so voice lines should not grow much.
 
-## Current state (2026-09-30)
-- Phase: investigation done, template adapted; preparation (step 3) is next. Nothing translated yet.
-- Verified: exporter is deterministic; validator handles JA3 tags; mod builds and passes the privacy check
-  (contains only the 8 font overrides so far). **Not verified in the game yet:** that the hand-written
-  metadata.lua/items.lua load in Mod Manager and that the CSV applies (no `%AppData%\Jagged Alliance 3` folder on
-  this PC yet — the game has apparently not been launched).
-- `work/glossary_candidates.csv` generated (658 candidates, no LLM suggestions yet); `glossary.json` still has only the
-  template's two terms.
-- `style_guide.md` is filled with proposed defaults — waiting for the user's review.
-- Open decisions (user): merc nicknames (transliterate Fox → Фокс, or translate speaking names like
-  Meltdown/Steroid/Grizzly?); country name (Grand Chien → «Гран-Ш’єн»?); keep foreign-language inserts (French, Ivan's
-  Russian in Cyrillic) as in the original?; translate the `editor` file at all?; profanity level; mod title/id
-  (`project.json: mod`, the id must not change after publishing).
-- Next: in-game smoke test of the near-empty mod → glossary (mercs + gender from `units`, places, terms) → pilot
-  40–100 lines per file.
+## Current state (2026-10-03)
+- **Full translation done**: `work/translations.json` — ok 28 560, manual 1 771 (Sonnet/review fixes), skip 210, error 0 (as of 2026-10-03).
+  Pipeline that ran: translate (MamayLM, 9.4 h) → redo errors → proofread → find_issues (6 h) → redo ти/ви+gender
+  from RU → gemma4 on errors → Sonnet subagents on 288 hard lines (errors + ~90 lines whose translation landed on a
+  neighbouring line — detected by comparing back-translation with neighbours' EN). Not committed yet.
+- Snapshots of every stage: `work/snapshots/02_after_translate … 07_after_sonnet.json` (git-ignored);
+  `scripts/restore_snapshot.py` restores error lines from a snapshot.
+- Open work, in order:
+  1. ~~Proofread decision~~ DONE 2026-10-02 (`scripts/proof_ab.py`): typography kept; 1 788 content edits judged
+     before/after — gpt-oss:20b locally on all (~4.6 s/line), Sonnet on its "both bad" + lines whose names differ
+     (241) + pilot packet (150). Result: 840 reverted, 793 kept, 57 own fixes (status manual). Snapshots 08/09.
+     Then (2026-10-02/03): Red Rabies → «Червоний сказ» everywhere (case-aware regex), Kronenberg (woman,
+     indeclinable) / Ґрузельгайм / Фоше / Чімуренга unified + glossary; achievements → «ви» (how_to «Убийте…»,
+     description «Убили…»). Snapshots 10–12.
+  2. ~~context_review.csv~~ DONE 2026-10-03 (`scripts/judge_suspects.py` + `scripts/find_shifts.py`): gpt-oss
+     confirmed 443/567; embeddings shift detector (+18 strong). MamayLM retranslated 424 lines ONE BY ONE →
+     gpt-oss A/B old/new → 238 new applied, 71 old kept; 88 "both bad"/unvalidated → Sonnet (85 fixed).
+     Shift-detector + gpt-oss on voice barks is mostly false positives; only gap > 0.1 is worth checking.
+  3. `work/ru_check.csv` — 52 leftovers (gender 36, ти/ви 18), low priority.
+  4. Build mod (`python scripts/build_mod.py`), user copies `mod/dist/JA3UkrLoc` to `%AppData%\Jagged Alliance 3\Mods`,
+     tests in game (start of campaign, A.I.M., first conversation, combat, Sat View), fix overflow/strings.
+  5. Commit (user's permission!) translations.json + new scripts (check_ru, ru_ref, redo_ru_check, restore_snapshot,
+     export_packets, proof_ab, judge_suspects, find_shifts, mod/Code) — check `git status`, no game text (work/strings.json, ref_*.json, csv are ignored).
+- Decisions (user): names/nicknames transliterated (glossary: 48 mercs with gender, places Гран-Ш’єн, Порт-Какао,
+  Пантагрюель, острів Ерні, Легіон, Майор, Алмазний Ред); Multiplayer → «Мережева гра»; French inserts Latin; Russian
+  inserts → Latin translit in code (`common.ru_mask/ru_translit`, Kalyna excepted); profanity Ukrainian only, no мат.
+  The user trusts the agent's game-term choices (AP → ОД, HP → ОЗ, Overwatch → Пильність, Sat View → Супутникова мапа…).
+  Claude/Sonnet may translate hard lines (user OK'd ~300k tokens per batch; use `scripts/export_packets.py`
+  packets → subagents write `work/_packets/out_NN.json` → `fix.py --json`).
+- Lessons from this run: batches of 25 sometimes put a translation on the neighbouring line (validator can't see it);
+  the proofreader and judge "fix" deliberate jokes; strict post-checks (ti/vy) turn ok lines into errors — always
+  snapshot before a pass and restore leftovers; a background Bash task is killed after its time limit (resumable).
+  Sonnet subagents cost ~600–800 tokens per judged line (re-reading context each turn), so for bulk A/B judging use
+  the local gpt-oss first and escalate only doubtful lines; gpt-oss catches shifted lines/gender but is weak on
+  spelling and register (it also returns empty output with a JSON schema — retry without `format`).

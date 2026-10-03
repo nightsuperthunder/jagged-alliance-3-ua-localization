@@ -42,8 +42,8 @@ def font_overrides(game):
     return out
 
 
-def write_csv(path, game, include_errors):
-    tr = load_json(TRANSLATIONS, {})
+def write_csv(path, game, include_errors, translations=TRANSLATIONS):
+    tr = load_json(translations, {})
     rows, stale = {}, 0
     ok = ("ok", "manual", "error") if include_errors else ("ok", "manual")
     for s in load_strings():
@@ -93,6 +93,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default=GAME_DIR)
     ap.add_argument("--install", action="store_true")
+    ap.add_argument("--translations", default=str(TRANSLATIONS), help="інший файл перекладів (проба)")
     ap.add_argument("--all", action="store_true", help="включити рядки з помилками валідації")
     args = ap.parse_args()
 
@@ -100,9 +101,10 @@ def main():
         shutil.rmtree(DIST)
     dest = DIST / M["folder"]
     dest.mkdir(parents=True)
-    n, nf = write_csv(dest / M["csv_name"], args.game, args.all)
+    n, nf = write_csv(dest / M["csv_name"], args.game, args.all, args.translations)
     render("metadata.lua", dest, n)
     render("items.lua", dest, n)
+    shutil.copytree(MOD / "Code", dest / "Code")
     print(f"Перекладених рядків у моді: {n} (+ замін шрифтів: {nf})")
 
     zip_path = MOD / M["zip_name"]

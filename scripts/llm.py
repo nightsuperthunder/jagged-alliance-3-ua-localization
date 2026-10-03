@@ -111,15 +111,18 @@ def glossary_for(text, terms):
 
 def ui_terms(strings, tr):
     """Короткі вже перекладені написи інтерфейсу (кнопки, вкладки) — автоглосарій для решти файлів."""
-    ui_file = CFG.get("ui_file")
-    out = []
+    files = set(CFG.get("autogloss_files") or [CFG.get("ui_file")])
+    out, seen = [], set()
     for s in strings:
         t = tr.get(s["key"])
         en = s["en"].strip()
-        if (s["file"] != ui_file or not t or t["status"] not in ("ok", "manual")
+        if en.lower() in seen:
+            continue  # перший переклад напису (у порядку файлів) — еталон
+        if (s["file"] not in files or not t or t["status"] not in ("ok", "manual")
                 or len(en.split()) > 4 or not re.search(r"[A-Za-z]", en)
                 or re.search(r"[{}<>]", en) or en.endswith((".", "!", "?"))):
             continue
+        seen.add(en.lower())
         out.append({"en": en, "uk": t["uk"].strip()})
     return out
 
@@ -128,7 +131,8 @@ def item_head(i, row, extra=""):
     """Заголовок рядка в промпті: номер, мовець, коментар розробників."""
     notes = []
     if row.get("speaker"):
-        notes.append(f"мовець: {row['speaker']}")
+        g = {"f": " (жінка)", "m": " (чоловік)"}.get(row.get("gender", ""), "")
+        notes.append(f"мовець: {row['speaker']}{g}")
     if row.get("comment"):
         notes.append(f"коментар розробників: {row['comment']}")
     if extra:

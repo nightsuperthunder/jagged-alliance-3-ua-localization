@@ -7,10 +7,13 @@ return PlaceObj('ModDef', {
 	'version_minor', @VERSION_MINOR@,
 	'version', @REVISION@,
 	'lua_revision', 233360,
-	'saved_with_revision', 348838,
+	'saved_with_revision', 366685,
+	'code', {
+		"Code/UkrLoc.lua",
+	},
 	'loctables', {
 		{
-			filename = "Mod/@ID@/@CSV@",
+			filename = "@CSV@",  -- ModsLoadLocTables prepends Mod/<id>/ itself
 			language = "@LANGUAGE@",
 		},
 	},

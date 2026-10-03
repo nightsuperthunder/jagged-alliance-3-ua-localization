@@ -51,7 +51,7 @@ def main():
         print("Нічого не знайдено")
     for s in hits[:args.max]:
         rows = by_file[s["file"]]
-        i = s["order"] if rows[s["order"]] is s else rows.index(s)
+        i = s["order"] if s["order"] < len(rows) and rows[s["order"]] is s else rows.index(s)
         for j in range(max(0, i - args.ctx), min(len(rows), i + args.ctx + 1)):
             r = rows[j]
             show(r, tr.get(r["key"]), "▶" if j == i else "·")
